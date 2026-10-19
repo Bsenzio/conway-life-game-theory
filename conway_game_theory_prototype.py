@@ -1,4 +1,3 @@
-```python
 """
 Experimental Prototype: Strategic Game Based on Conway's Game of Life
 ----------------------------------------------------------------------
@@ -528,4 +527,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
