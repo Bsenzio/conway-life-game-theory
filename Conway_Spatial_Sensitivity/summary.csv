@@ -1,0 +1,6 @@
+﻿CellsPerPlayer,IndependentStrategySets,TransformedGames,MeanGameValue,SDGameValue,FractionNoPureNE,CountNoPureNE,FractionSetsWithNEStatusChange,SetsWithNEStatusChange,MeanWithinSetValueRange,MedianWithinSetValueRange
+3,40,640,1.074424,1.79902,0.123438,79,0.65,26,3.810745,4.0
+4,40,640,2.752595,2.239162,0.473438,303,1.0,40,6.353781,6.0
+5,40,640,2.187347,2.260156,0.392188,251,0.975,39,6.146137,6.0
+6,40,640,2.82898,2.370146,0.45,288,1.0,40,6.622504,6.188034
+7,40,640,3.748651,2.55358,0.559375,358,1.0,40,7.956182,8.0

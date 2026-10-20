@@ -1,0 +1,17 @@
+﻿Parameter,Value
+Board,5x5 finite grid; dead cells beyond boundaries
+Rule,Conway B3/S23
+Generation convention,Generation 1 initial; Generation 10 after nine transitions
+Regions,"A rows 0-1, B rows 3-4, middle row unused initially"
+Budget,Each player selects the same number of cells from its 10-cell region
+Strategy sets,Three distinct masks sampled uniformly without replacement for each player
+Transformations,"identity, horizontal_reflection, column_shift_1, row_swap"
+Transform design,All 4 x 4 transform pairs for each fixed sampled strategy set
+Important caveat,Column shift wraps WITHIN a placement region; it is not a Conway-board symmetry
+Primary payoff,Player A = final live-cell count; Player B = negative of this count
+Secondary payoff,Each player receives final live-cell count minus outcome from opponent acting alone
+Equilibrium scope,Pure Nash for both models; minimax mixed equilibrium for zero-sum model
+Statistical unit,"Independent sampled strategy set, not the 16 correlated transformed games"
+Inference,Exploratory; no claim of unrestricted Nash equilibria or causal density threshold
+Master seed,20261020
+Independent sets per budget,40

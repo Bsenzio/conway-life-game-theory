@@ -1,0 +1,20 @@
+{
+  "seed": 20261020,
+  "samples_per_budget": 40,
+  "budgets": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "transformations": [
+    "identity",
+    "horizontal_reflection",
+    "column_shift_1",
+    "row_swap"
+  ],
+  "games": 3200,
+  "pairings": 28800,
+  "unique_cached_outcomes": 25321
+}
