@@ -1,0 +1,19 @@
+﻿Budget,Model,Equilibrium,PlayerAProbabilities,PlayerBProbabilities,ExpectedPayoffA,ExpectedPayoffB
+3,Survival_vs_Extinction,Minimax solution,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,Compact=0.00000000; Row-oriented=0.00000000; Dispersed=1.00000000,0.0,-0.0
+3,Mutual_Preservation,Support equilibrium 1,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,1.0,1.0
+3,Mutual_Preservation,Support equilibrium 2,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,10.0,7.0
+3,Mutual_Preservation,Support equilibrium 3,Compact=0.66666667; Row-oriented=0.33333333; Dispersed=0.00000000,Compact=0.66666667; Row-oriented=0.33333333; Dispersed=0.00000000,0.66666667,-0.33333333
+4,Survival_vs_Extinction,Minimax solution,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,Compact=0.00000000; Row-oriented=0.00000000; Dispersed=1.00000000,0.0,-0.0
+4,Mutual_Preservation,Support equilibrium 1,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,5.0,5.0
+4,Mutual_Preservation,Support equilibrium 2,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,5.0,3.0
+4,Mutual_Preservation,Support equilibrium 3,Compact=0.75000000; Row-oriented=0.25000000; Dispersed=0.00000000,Compact=0.75000000; Row-oriented=0.25000000; Dispersed=0.00000000,4.25,3.75
+5,Survival_vs_Extinction,Minimax solution,Compact=0.05263158; Row-oriented=0.31578947; Dispersed=0.63157895,Compact=0.35087719; Row-oriented=0.08771930; Dispersed=0.56140351,3.15789474,-3.15789474
+5,Mutual_Preservation,Support equilibrium 1,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,12.0,12.0
+5,Mutual_Preservation,Support equilibrium 2,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,9.0,1.0
+5,Mutual_Preservation,Support equilibrium 3,Compact=0.00000000; Row-oriented=0.00000000; Dispersed=1.00000000,Compact=0.00000000; Row-oriented=0.00000000; Dispersed=1.00000000,1.0,1.0
+5,Mutual_Preservation,Support equilibrium 4,Compact=0.60000000; Row-oriented=0.40000000; Dispersed=0.00000000,Compact=0.80000000; Row-oriented=0.20000000; Dispersed=0.00000000,7.2,4.0
+5,Mutual_Preservation,Support equilibrium 5,Compact=0.07692308; Row-oriented=0.00000000; Dispersed=0.92307692,Compact=0.00000000; Row-oriented=0.38461538; Dispersed=0.61538462,2.15384615,0.92307692
+5,Mutual_Preservation,Support equilibrium 6,Compact=0.00000000; Row-oriented=0.35714286; Dispersed=0.64285714,Compact=0.35714286; Row-oriented=0.00000000; Dispersed=0.64285714,0.64285714,-2.21428571
+5,Mutual_Preservation,Support equilibrium 7,Compact=0.05263158; Row-oriented=0.31578947; Dispersed=0.63157895,Compact=0.35087719; Row-oriented=0.08771930; Dispersed=0.56140351,0.9122807,-1.89473684
+6,Survival_vs_Extinction,Minimax solution,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,Compact=0.00000000; Row-oriented=0.00000000; Dispersed=1.00000000,0.0,-0.0
+6,Mutual_Preservation,Support equilibrium 1,Compact=0.00000000; Row-oriented=1.00000000; Dispersed=0.00000000,Compact=1.00000000; Row-oriented=0.00000000; Dispersed=0.00000000,12.0,8.0

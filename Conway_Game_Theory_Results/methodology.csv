@@ -1,0 +1,14 @@
+﻿Parameter,Definition
+Board,5x5 finite; cells outside board dead
+Rule,"Conway B3/S23, synchronous"
+Generation,"G1 initial, G10 after nine transitions"
+Budget,"3, 4, 5, 6 cells per player"
+Strategies,Three selected families per player and budget; see source selection criteria
+Placement,A rows 0-1; B rows 3-4; center row initially empty; no overlap
+Model 1,"uA=N10(A union B), uB=-N10(A union B)"
+Model 2,uA=N10(A union B)-N10(B alone); uB=N10(A union B)-N10(A alone)
+Interpretation,"Model 2 is counterfactual marginal contribution, NOT persistent cell ownership"
+Scope,3x3 restricted strategy games; not equilibria in unrestricted 5x5 game
+Equilibria,Linear programming for zero-sum; support enumeration for non-zero-sum
+Degeneracy,"Support enumeration returns representatives, not full equilibrium continua"
+Density comparison,Phase 3 random configurations are a different sampling design
