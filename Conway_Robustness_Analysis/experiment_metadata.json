@@ -1,0 +1,17 @@
+{
+  "master_seed": 20261020,
+  "samples_per_budget": 100,
+  "budgets": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "total_sampled_games": 500,
+  "total_pairings": 4500,
+  "generations": 10,
+  "transitions": 9,
+  "strategy_space": "3 strategies/player sampled from 2x5 disjoint zones",
+  "mixed_secondary_equilibria": "not enumerated"
+}

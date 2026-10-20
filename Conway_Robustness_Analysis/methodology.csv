@@ -1,0 +1,17 @@
+﻿Parameter,Definition
+Game,Finite 3x3 sampled strategy sets; zero-sum and counterfactual mutual preservation
+Board,"5x5, finite boundaries; Conway B3/S23"
+Horizon,Generation 1 initial; Generation 10 after 9 synchronous transitions
+Budgets,"3,4,5,6,7 cells per player"
+Regions,Player A rows 0-1; Player B rows 3-4; central row initially empty
+Sampling,Uniform random 3 distinct patterns per player from all budget-compatible patterns in own region
+Samples per budget,100
+Master seed,20261020
+Primary payoffs,"A=N10(A union B), B=-N10(A union B)"
+Secondary payoffs,A=N10(A union B)-N10(B alone); B=N10(A union B)-N10(A alone)
+Primary equilibrium,Zero-sum minimax linear programming; pure NE counted separately
+Secondary equilibrium,Pure equilibria counted; mixed nonzero-sum equilibria NOT enumerated
+Confidence intervals,Wilson 95% for sampled no-pure proportion; normal 95% for mean game value
+Limitation,Restricted sampled 3x3 games; NOT exhaustive Nash equilibria of unrestricted Conway
+Limitation,Different samples can reuse patterns; each sampled game is an independent random draw
+Limitation,Spatial partitions and sampling frame affect outcomes
