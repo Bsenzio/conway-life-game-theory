@@ -1,0 +1,10 @@
+{
+  "seed": 20261020,
+  "permutations_per_game": 200,
+  "minimax_permutations_per_game": 12,
+  "games": 1500,
+  "total_payoff_entries": 67000,
+  "null": "Within each original matrix, independently permute all payoff entries, preserving exact multiset including ties",
+  "statistics": "Game-level paired bootstrap CI; approximate conditional permutation-null Monte Carlo p-value based on estimated per-game null probabilities",
+  "caution": "Matrix entries are dependent; nested 3/5/10 games are not independent; p-values are exploratory and unadjusted for 15 comparisons."
+}

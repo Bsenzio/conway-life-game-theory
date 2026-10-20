@@ -1,0 +1,27 @@
+{
+  "experiment": "Phase 7 - Strategy-space scaling on fixed 5x5 Conway",
+  "seed": 20261020,
+  "samples_per_budget": 100,
+  "budgets": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "action_counts": [
+    3,
+    5,
+    10
+  ],
+  "generation_convention": "G1 initial, G10 after 9 B3/S23 updates",
+  "placement": "A top two rows, B bottom two rows, middle row initially empty",
+  "sampling": "uniform distinct combinations without replacement within each sampled 10-action set",
+  "nesting": "3 and 5 action games are upper-left subgames of sampled 10x10 matrix",
+  "payoffs": "A=N10, B=-N10",
+  "unique_joint_masks_cached": 41649,
+  "total_games": 1500,
+  "total_payoff_entries": 67000,
+  "independence": "Sets sampled independently within budget; 3/5/10 comparisons are paired",
+  "scope": "Restricted sampled strategy games, not unrestricted full-board game"
+}
