@@ -8,16 +8,15 @@ The repository contains an interactive demonstration as well as independent comp
 
 ## Contents
 
-1. [Research objectives](#research-objectives)
-2. [Cellular automaton and experimental conventions](#cellular-automaton-and-experimental-conventions)
-3. [Programs and research workflow](#programs-and-research-workflow)
-4. [Installation](#installation)
-5. [Running the experiments](#running-the-experiments)
-6. [Game-theoretic models](#game-theoretic-models)
-7. [Outputs and reproducibility](#outputs-and-reproducibility)
-8. [Limitations](#limitations)
-9. [Future research](#future-research)
-10. [Author and citation](#author-and-citation)
+1. Research objectives
+2. Cellular automaton and experimental conventions
+3. Programs and research workflow
+4. Installation
+5. Running the experiments
+6. Game-theoretic models
+7. Outputs and reproducibility
+8. Limitations
+9. Future research
 
 ## Research objectives
 
@@ -124,12 +123,7 @@ The script reports game-level paired differences, aggregated comparisons by budg
 
 ## Installation
 
-Install **Python 3.9 or newer** as a practical starting point (the scripts have not been verified here against every Python version). Clone the repository:
-
-```bash
-git clone https://github.com/Bsenzio/conway-life-game-theory.git
-cd conway-life-game-theory
-```
+Install **Python 3.9 or newer** as a practical starting point (the scripts have not been verified here against every Python version). Place the project files in a folder named `conway-life-game-theory` and open a terminal in that folder.
 
 Create a virtual environment (recommended):
 
@@ -219,39 +213,17 @@ For parameter details, use `--help` with scripts that support command-line optio
 
 ## Game-theoretic models
 
-Let `s_A` and `s_B` be the strategies selected by players A and B, respectively, and let `N10(s_A ∪ s_B)` be the number of living cells in the final observed state after the chosen initial patterns are combined.
+Each player selects an initial pattern. The combined board is the union of both patterns, and the outcome is the number of living cells in the final observed state.
 
 ### Model 1: zero-sum survival versus extinction
 
-The primary game-theoretic studies define:
-
-\[
-u_A(s_A,s_B)=N_{10}(s_A\cup s_B)
-\]
-
-\[
-u_B(s_A,s_B)=-N_{10}(s_A\cup s_B)
-\]
-
-Player A **maximizes** the final population; Player B **minimizes** it. If `M` is Player A's payoff matrix, a pure saddle point exists at `(i,j)` when its entry is maximal in its column and minimal in its row:
-
-\[
-M_{ij}=\max_{r}M_{rj}=\min_{c}M_{ic}.
-\]
+In the primary model, Player A receives a payoff equal to the final live-cell count, while Player B receives the same value with the opposite sign. Player A **maximizes** the final population; Player B **minimizes** it. A pure saddle point exists when one matrix entry is simultaneously the best available outcome for A in its column and the best available outcome for B in its row.
 
 Even if no pure equilibrium exists, a finite zero-sum game has a mixed-strategy minimax solution. Several batch scripts compute such solutions via linear programming.
 
 ### Model 2: counterfactual mutual preservation
 
-Phase 4 and related secondary analyses consider each player's **marginal contribution** to the final population relative to the opponent acting alone:
-
-\[
-u_A(s_A,s_B)=N_{10}(s_A\cup s_B)-N_{10}(s_B)
-\]
-
-\[
-u_B(s_A,s_B)=N_{10}(s_A\cup s_B)-N_{10}(s_A).
-\]
+Phase 4 and related secondary analyses measure each player's **marginal contribution** to the final population. For each player, this is the combined final population minus the final population that would result if only the opponent's pattern were present.
 
 This is generally a **non-zero-sum** game. These utilities do **not** imply that cells are tagged by owner or that distinct species compete under different cellular-automaton rules. Equilibrium algorithms and reported results depend on the model; a zero-sum minimax value is not interchangeable with a non-zero-sum equilibrium payoff.
 
@@ -319,15 +291,5 @@ conway-life-game-theory/
 ## Future research
 
 Possible next steps include standardized generation indexing across all scripts; additional payoff and survival objectives; systematic comparisons across larger grids and alternative boundaries; expanded action-selection mechanisms; full mixed-equilibrium and degeneracy analysis for additional non-zero-sum models; independent NES-versus-Python trace comparison using raw hardware/emulator logs; and further paired sensitivity analyses with documented uncertainty.
-
-## Author and citation
-
-**Bruno Senzio-Savino** — [@Bsenzio](https://github.com/Bsenzio)
-
-Repository: <https://github.com/Bsenzio/conway-life-game-theory>
-
-If you use this code in research or teaching, please cite the repository URL and the specific commit or release used. A formal paper citation, DOI, and software license should be added here **only when their final details are available**.
-
----
 
 **Disclaimer:** This repository provides reproducible computational tools and exploratory models. Its outputs should be evaluated in the context of the exact code version, assumptions, parameter choices, and generated datasets used for each experiment.
