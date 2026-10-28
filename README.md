@@ -149,7 +149,7 @@ Install dependencies for the computational studies:
 python -m pip install numpy scipy matplotlib openpyxl
 ```
 
-- **Standard library only:** `python_nes_validation_dual_mode(2).py`.
+- **Standard library only:** `python_nes_validation_dual_mode.py`.
 - **Tkinter standard-library GUI:** `conway_nash_3x3.py` (Tkinter may require a separate system package on Linux).
 - **Matplotlib + openpyxl:** extended density experiment and its audit script.
 - **NumPy + SciPy + Matplotlib (+ openpyxl where applicable):** game-theory research scripts.
@@ -169,14 +169,14 @@ python conway_nash_3x3.py
 **Generate Python/NES reference and fresh-random trajectories:**
 
 ```bash
-python "python_nes_validation_dual_mode(2).py"
+python "python_nes_validation_dual_mode.py"
 ```
 
 **Generate extended density data, then audit/analyze it:**
 
 ```bash
-python "conway_extended_experiments(1).py"
-python "analyze_conway_results(1).py" --input Conway_Extended_Study
+python "conway_extended_experiments.py"
+python "analyze_conway_results.py" --input Conway_Extended_Study
 ```
 
 **Phase 4 — deterministic strategy families:**
@@ -188,19 +188,19 @@ python conway_game_theory_strategy_analysis.py
 **Phase 5 — robustness:**
 
 ```bash
-python "conway_robustness_analysis(2).py" --samples 100 --seed 20261020
+python "conway_robustness_analysis.py" --samples 100 --seed 20261020
 ```
 
 **Phase 6 — spatial sensitivity:**
 
 ```bash
-python "conway_spatial_sensitivity(2).py" --samples 40 --seed 20261020
+python "conway_spatial_sensitivity.py" --samples 40 --seed 20261020
 ```
 
 **Phase 7 — strategy scaling:**
 
 ```bash
-python "conway_strategy_scaling(2).py" --samples 100 --seed 20261020
+python "conway_strategy_scaling.py" --samples 100 --seed 20261020
 ```
 
 **Phase 8 — payoff permutation baseline (run Phase 7 first):**
@@ -265,13 +265,13 @@ The following lists the **nine Python source files supplied for this README**; g
 conway-life-game-theory/
 ├── README.md
 ├── conway_nash_3x3.py
-├── python_nes_validation_dual_mode(2).py
-├── conway_extended_experiments(1).py
-├── analyze_conway_results(1).py
+├── python_nes_validation_dual_mode.py
+├── conway_extended_experiments.py
+├── analyze_conway_results.py
 ├── conway_game_theory_strategy_analysis.py
-├── conway_robustness_analysis(2).py
-├── conway_spatial_sensitivity(2).py
-├── conway_strategy_scaling(2).py
+├── conway_robustness_analysis.py
+├── conway_spatial_sensitivity.py
+├── conway_strategy_scaling.py
 └── conway_randomization.py
 ```
 
