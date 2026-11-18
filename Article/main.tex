@@ -64,7 +64,23 @@ Third, we test whether the observed equilibrium structure differs from controls 
 
 Artificial-life research has long treated simple local interactions as a route to emergent behavior \citep{langton1989artificial,ilachinski2001cellular}. Historical accounts trace how artificial-life research connected computational models to questions about life-like organization \citep{levy1992}. Evolutionary computing provides a related but distinct family of approaches in which populations of candidate solutions are varied and selected \citep{eiben2015evolutionary}; our experiments do not use an evolutionary optimizer, and Conway states evolve solely through fixed B3/S23 rules. Interactive computational environments can additionally expose the role of user-defined initial conditions \citep{resnick2001turtles}. The computational formulation is motivated by an existing NES/Famicom artificial-life implementation. In that system, a user first collects virtual vegetables, defining a seed budget, and then initializes a $5\times5$ GoL board through manual or random placement. The console subsequently displays the automaton's evolution. The \emph{two-player strategic model is a separate Python-based analytical extension}, not a claim that competitive multiplayer play or Nash-equilibrium computation is implemented in the NES ROM. We use the console implementation as an independent execution environment for selected trajectories.
 
-The research questions are: (RQ1) how frequently do restricted Conway-induced games possess pure-strategy saddle points; (RQ2) how do strategy-set size and spatial arrangement change equilibrium structure; (RQ3) does the row--column organization of the payoff matrices differ from tie-preserving randomized controls; and (RQ4) do selected predicted trajectories agree with the implemented NES evolution? The main contributions are a precise game definition and computational protocol, an empirical equilibrium analysis over several controlled strategy families, a payoff-permutation comparison, and a cell-level NES--Python validation protocol. The present study does not test human decision making or learning.
+The four research questions propounded in this paper are: 
+\begin{itemize}
+  \item 
+  How frequently do restricted Conway-induced games possess pure-strategy saddle points?
+  \item 
+  How do strategy-set size and spatial arrangement change equilibrium structure?
+  \item 
+  Does the row--column organization of the payoff matrices differ from tie-preserving randomized controls?
+  \item 
+  Do selected predicted trajectories agree with the implemented NES evolution? 
+\end{itemize}
+The main contributions are 
+a precise game definition and computational protocol, 
+an empirical equilibrium analysis over several controlled strategy families, 
+a payoff-permutation comparison, and 
+a cell-level NES--Python validation protocol. 
+% The present study does not test human decision making or learning.
 
 \section{Materials and Methods}\label{sec:methods}
 
