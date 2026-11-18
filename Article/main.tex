@@ -23,10 +23,11 @@
 \Title{A Game-Theoretic Framework for Competitive Seeding in Conway's Game of Life: Equilibrium Structure, Randomized Baselines, and NES Validation}
 
 \newcommand{\orcidauthorA}{0000-0002-6005-2473} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorC}{0000-0001-9224-6929}
 
 % The exact author names and affiliation numbering below follow the provided
 % ALife2026 manuscript. ORCIDs and corresponding-author details are pending.
-\Author{Bruno Senzio-Savino $^{1}$\orcidA{}, Faramarz Alsharif $^{2}$, Aleksandar Shurbevski $^{3}$ and Mahdi Khosravy $^{3,4}$}
+\Author{Bruno Senzio-Savino $^{1}$\orcidA{}, Faramarz Alsharif $^{2}$, Aleksandar Shurbevski $^{3}$\orcidauthorC and Mahdi Khosravy $^{3,4}$}
 \AuthorNames{Bruno Senzio-Savino, Faramarz Alsharif, Aleksandar Shurbevski and Mahdi Khosravy}
 \address{%
 $^{1}$ \quad Graduate School of Science and Engineering, Department of Informatics and Electronics, Electrical and Electronics Communication Engineering, Yamagata University, Japan (Invited Researcher)\\
@@ -35,7 +36,16 @@ $^{3}$ \quad The Kyoto College of Graduate Studies for Informatics, Kyoto, Japan
 $^{4}$ \quad CrossCompass Ltd., Tokyo, Japan}
 \corres{Correspondence: asharif@yz.yamagata-u.ac.jp}
 
-\abstract{Competition over a cellular automaton's initial conditions offers a finite strategic interaction without changing its local rules. We formulate a two-player zero-sum seeding game on a finite $5\times5$ Conway Game of Life board. The players select fixed-cardinality, nonoverlapping seed patterns; the row player maximizes and the column player minimizes the number of live cells at the tenth recorded generation. We study pure and mixed equilibria across seed budgets of three to seven cells and restricted action sets of 3, 5, and 10 patterns per player. In 1,500 sampled games, the fraction lacking a pure equilibrium increases from 15\% to 51\% at budget three and from 53\% to 99\% at budget seven when the action count increases from three to ten. A within-matrix permutation baseline, preserving each payoff multiset and its ties, exhibits higher no-pure-equilibrium rates in all 15 examined conditions, with five conditions meeting the 0.05 family-wise significance criterion after Holm adjustment. Spatial transformations also alter equilibrium existence. Ten selected computational trajectories were compared with records from an NES implementation, yielding 100 matching board states (2,500 matching cell states). These results characterize restricted Conway-induced games, not the unrestricted automaton, and link the NES platform to computational game theory.}
+\abstract{Competition over a cellular automaton's initial conditions offers a finite strategic interaction without changing its local rules.
+We formulate a two-player zero-sum seeding game on a finite $5\times5$ Conway Game of Life board.
+The players select fixed-cardinality, nonoverlapping seed patterns;
+the row player maximizes and the column player minimizes the number of live cells at the tenth recorded generation.
+We study pure and mixed equilibria across seed budgets of three to seven cells and restricted action sets of 3, 5, and 10 patterns per player.
+In 1,500 sampled games, the fraction lacking a pure equilibrium increases from 15\% to 51\% at budget three and from 53\% to 99\% at budget seven when the action count increases from three to ten.
+A within-matrix permutation baseline, preserving each payoff multiset and its ties, exhibits higher no-pure-equilibrium rates in all 15 examined conditions, with five conditions meeting the 0.05 family-wise significance criterion after Holm adjustment.
+Spatial transformations also alter equilibrium existence.
+Ten selected computational trajectories were compared with records from an NES implementation, yielding 100 matching board states (2,500 matching cell states).
+These results characterize restricted Conway-induced games, and link the NES platform to computational game theory.}
 \keyword{algorithmic game theory; Conway's Game of Life; Nash equilibrium; minimax; competitive seeding; cellular automata; permutation baseline; Nintendo Entertainment System; reproducibility}
 
 \begin{document}
@@ -46,17 +56,43 @@ Conway's Game of Life (GoL) is a deterministic cellular automaton in which local
 
 Competitive versions of Life are not unprecedented. The two-player automaton developed by \citet{levene2003} introduces competing cell types and modifies the transition mechanism. Competitive evolutionary studies based on the Immigration Game similarly use distinguishable lineages and a modified competitive interpretation \citep{turney2021}. In a different domain, competitive diffusion games model initial seed choices and investigate the structure and computational complexity of equilibria on networks \citep{etesami2016}. Spatial noncooperative games likewise demonstrate that geometry and the rules of interaction influence equilibrium outcomes \citep{andrade2009}. These precedents establish that neither two-player cellular automata nor competitive seeding is novel in isolation.
 
-Our focus differs in three ways. First, \emph{the standard Conway B3/S23 update rule is kept unchanged}. In this notation, B3 indicates that a dead cell becomes alive when exactly three of its eight neighbors are alive, whereas S23 indicates that a living cell survives when it has two or three living neighbors. All other cells become or remain dead. These rules are applied synchronously and are formally defined in Equation~\eqref{eq:conway}. Competition is imposed entirely through external payoff functions associated with the final population of an otherwise ordinary binary automaton. Second, we study restricted, finite normal-form games generated by spatially separated seed-placement choices, with both pure and mixed Nash equilibria computed explicitly. Third, we test whether their observed equilibrium structure differs from controls constructed by permuting the entries of each empirical payoff matrix while exactly preserving its payoff distribution, including ties.
+Our focus differs in three ways.
+First, \emph{the standard Conway B3/S23 update rule is kept unchanged}.
+In this notation, B3 indicates that a dead cell becomes alive when exactly three of its eight neighbors are alive, whereas S23 indicates that a living cell survives when it has two or three living neighbors. All other cells become or remain dead. These rules are applied synchronously and are formally defined in Equation~\eqref{eq:conway}. Competition is imposed entirely through external payoff functions associated with the final population of an otherwise ordinary binary automaton.
+Second, we study restricted, finite normal-form games generated by spatially separated seed-placement choices, with both pure and mixed Nash equilibria computed explicitly.
+Third, we test whether the observed equilibrium structure differs from controls constructed by permuting the entries of each empirical payoff matrix while exactly preserving its payoff distribution, including ties.
 
-Artificial-life research has long treated simple local interactions as a route to emergent behavior \citep{langton1989artificial,ilachinski2001cellular}. Historical accounts trace how artificial-life research connected computational models to questions about life-like organization \citep{levy1992}. Evolutionary computing provides a related but distinct family of approaches in which populations of candidate solutions are varied and selected \citep{eiben2015evolutionary}; our experiments do not use an evolutionary optimizer, and Conway states evolve solely through fixed B3/S23 rules. Interactive computational environments can additionally expose the role of user-defined initial conditions \citep{resnick2001turtles}. The computational formulation is motivated by an existing NES/Famicom artificial-life implementation. In that system, a user first collects virtual vegetables, defining a seed budget, and then initializes a $5\times5$ GoL board through manual or random placement. The console subsequently displays the automaton's evolution. The \emph{two-player strategic model is a separate Python-based analytical extension}, not a claim that competitive multiplayer play or Nash-equilibrium computation is implemented in the NES ROM. We use the console implementation as an independent execution environment for selected trajectories.
+Artificial-life research has long treated simple local interactions as a route to emergent behavior \citep{langton1989artificial,ilachinski2001cellular}. Historical accounts trace how artificial-life research connected computational models to questions about life-like organization \citep{levy1992}. Evolutionary computing provides a related but distinct family of approaches in which populations of candidate solutions are varied and selected \citep{eiben2015evolutionary}; our experiments do not use an evolutionary optimizer, and Conway states evolve solely through fixed B3/S23 rules. Interactive computational environments can additionally expose the role of user-defined initial conditions \citep{resnick2001turtles}. The computational formulation is motivated by an existing NES/Famicom (Nintendo Entertainment System, \citep{altice2015}) artificial-life implementation~\citep{senzio2026nes}. In that system, a user first collects virtual vegetables, defining a seed budget, and then initializes a $5\times5$ GoL board through manual or random placement. The console subsequently displays the automaton's evolution. 
+% The \emph{two-player strategic model is a separate Python-based analytical extension}, not a claim that competitive multiplayer play or Nash-equilibrium computation is implemented in the NES ROM. 
+We use the console implementation as an independent execution environment for selected trajectories.
 
-The research questions are: (RQ1) how frequently do restricted Conway-induced games possess pure-strategy saddle points; (RQ2) how do strategy-set size and spatial arrangement change equilibrium structure; (RQ3) does the row--column organization of the payoff matrices differ from tie-preserving randomized controls; and (RQ4) do selected predicted trajectories agree with the implemented NES evolution? The main contributions are a precise game definition and computational protocol, an empirical equilibrium analysis over several controlled strategy families, a payoff-permutation comparison, and a cell-level NES--Python validation protocol. The present study does not test human decision making or learning.
+The four research questions propounded in this paper are: 
+\begin{itemize}
+  \item 
+  How frequently do restricted Conway-induced games possess pure-strategy saddle points?
+  \item 
+  How do strategy-set size and spatial arrangement change equilibrium structure?
+  \item 
+  Does the row--column organization of the payoff matrices differ from tie-preserving randomized controls?
+  \item 
+  Do selected predicted trajectories agree with the implemented NES evolution? 
+\end{itemize}
+The main contributions are 
+a precise game definition and computational protocol, 
+an empirical equilibrium analysis over several controlled strategy families, 
+a payoff-permutation comparison, and 
+a cell-level NES--Python validation protocol. 
+% The present study does not test human decision making or learning.
 
 \section{Materials and Methods}\label{sec:methods}
 
 \subsection{Interactive NES Origin and Scope of the Formal Extension}
 
-The previously developed NES system, documented in the earlier platform paper \citep{senzio2026nes}, was implemented on a platform whose architecture and programming constraints are described by \citet{altice2015}. It comprises two stages: an arcade-style item collection stage that determines a seed budget, followed by a $5\times5$ simulation stage supporting manual seed placement or random initialization. Here, the term \emph{seed budget} refers to the number of initially live cells that can be placed on the board. In the NES implementation, this quantity is determined by the items collected during the first stage. In the game-theoretic extension, the seed budget is instead represented by a fixed parameter $k$, specifying the number of live cells that each player must place within their designated region.
+In an earlier work,~\citet{senzio2026nes} reported an NES implementation of a playable Game of Life for educational purposes.
+The implemented game comprises two stages: an arcade-style item collection stage that determines a seed budget; followed by a $5\times5$ simulation stage supporting manual seed placement or random initialization.
+Here, the term \emph{seed budget} refers to the number of initially live cells that can be placed on the board.
+In the NES implementation, this quantity is determined by the items collected during the first stage.
+In the game-theoretic extension, the seed budget is instead represented by a fixed parameter $k$, specifying the number of live cells that each player must place within their designated region.
 
 This design permits human-guided specification of an initial condition, but the present article analyzes neither human strategy selection nor the acquisition-stage decisions as an extensive-form game. Instead, the collected budget motivates a family of \emph{fixed-budget normal-form games} representing strategic interaction at the initialization stage. In a normal-form game, players choose strategies from specified action sets, and their payoffs are determined by the resulting combination of choices \citep{osborne1994course}. In our formulation, each player selects exactly $k$ distinct cell positions within a designated placement region. The selected positions are combined into a single initial configuration, which evolves according to Conway's rules, and the resulting terminal population determines the players' payoffs. The mathematical opponents, their feasible placement regions, and their opposing payoff functions are formally defined in the following subsections. The term \emph{fixed-budget} describes a restriction imposed by our model rather than a separate game-theoretic solution concept.
 
